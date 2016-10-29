@@ -1,9 +1,12 @@
 $( function() {
-    var counter = 0;
-    $('#cat-image').click(function(e) {
-        counter++;
-        console.log('Cat Clicked - ' + counter + ' times!!'  );
-        $('.clickCounter').text(counter);
+    var count1 = 0, count2 = 0;
+    $('#clicker1').click(function(e) {
+        count1++;
+        $('#counter1').text(count1);
+    });
+    $('#clicker2').click(function(e) {
+        count2++;
+        $('#counter2').text(count2);
     });
 });
 
