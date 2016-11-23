@@ -6,27 +6,51 @@
 </head>
 <body>
 <section class="container">
-    <h1 class="centerText">Cat Clicker - Version 1.0 </h1>
+    <h1 class="centerText">Cat Clicker - Version 3.0 </h1>
     <hr>
 
-    <p>
-        <span id="counter1">0</span> clicks
-        <br>
-        <img id="clicker1" src="./images/cat_1.jpg">
-    </p>
-    <p>
-        <span id="counter2">0</span> clicks
-        <br>
-        <img id="clicker2" src="./images/cat_2.jpg">
-    </p>
+    <div id="catname-box">
+        <ul class="list"></ul>
+    </div>
+    <div id="cat-display-box">
+        <div id="catTitle-box"></div>
+        <div id="catimg-box"></div>
+        <div id="catCounter-box">
+            Count = <span class="counter"></span>
+        </div>
+    </div>
 
+</section>
+
+<section class="demo_closures container">
+    <div id="demo-1">
+        <code class="code-override">
+            document.querySelector(".demo_output_1').innerHTML = '';
+        </code>
+
+        <button onclick="demo1()">Run Demo 1</button>
+
+        <div class="demo_output_1"></div>
+    </div>
+    <div id="demo-2">
+        <code class="code-override">
+            document.querySelector(".demo_output_2").innerHTML = '';
+
+        </code>
+
+        <button onclick="demo2()">Run Demo 2</button>
+
+        <div class="demo_output_2"></div>
+    </div>
 </section>
 
 <!--Stylesheets & JS-->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <link rel="stylesheet" href="css/style.css"/>
+<link rel="stylesheet" href="css/demo.css"/>
 <script src="js/jquery/jquery-3.1.0.min.js"></script>
 <script src="js/app.js" async></script>
+<script src="js/demo.js" async></script>
 
 </body>
 </html>
