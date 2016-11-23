@@ -1,3 +1,46 @@
 .centerText {
     text-align: center;
 }
+
+.container {
+    min-width: 600px;
+    min-height: 500px;
+
+}
+
+#catname-box {
+    float:left;
+    padding: 10px;
+    margin-right: 20px;
+    border: solid 1px #1b6d85;
+}
+
+#catname-box .list {
+    margin: 0;
+    padding: 0;
+}
+
+#catname-box .list li {
+    list-style-type: none;
+}
+
+.menu-item:hover {
+    color: #0b97c4;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+#cat-display-box {
+    float:left;
+    border: solid 1px #1b6d85;
+    height: 500px;
+    width: 500px;
+}
+
+#catimg-box {
+    background-repeat: no-repeat;
+    height: 80%;
+    width: 90%;
+    margin: 0 auto;
+}
+

@@ -1,0 +1,41 @@
+.demo_closures {
+    margin-top:20px;
+    display: flex;
+    flex-direction: row;
+}
+
+.demo_output_1, .demo_output_2 {
+    display: block;
+    padding: 9.5px;
+    margin: 20px 10px 10px 0;
+    font-size: 13px;
+    line-height: 1.42857143;
+    color: #333;
+    word-break: break-all;
+    word-wrap: break-word;
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+
+.demo_output_1 > div:hover, .demo_output_2 > div:hover {
+    color: #0b97c4;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.code-override {
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    display: block;
+    padding: 9.5px;
+    margin: 0 10px 10px 0;
+    font-size: 13px;
+    line-height: 1.42857143;
+    color: #333;
+    word-break: break-all;
+    word-wrap: break-word;
+    overflow: auto;
+}
