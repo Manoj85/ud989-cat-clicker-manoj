@@ -120,6 +120,7 @@ $( function() {
                     return function () {
                         octopus.setCurrentCat(catCopy);
                         catView.render();
+                        catEditView.render();
                     }
                 })(cat));
                 this.catListElem.appendChild(cat_elem);
