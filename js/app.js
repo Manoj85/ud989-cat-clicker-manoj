@@ -3,12 +3,8 @@ $( function() {
     var model = {
         currentCat: null,
         cats: [],
+        isAdminView: false,
         init: function() {
-            /*
-            $.getJSON("./data/cats.json", (data) => {
-                this.cats = data;
-            });
-            */
             this.cats = [
                 {
                     "image_src": "./images/cat_1.jpg",
@@ -46,6 +42,8 @@ $( function() {
             model.init();
             catView.init();
             catListView.init();
+            catAdminButtonView.init();
+            catEditView.init();
         },
 
         getCats: function() {
@@ -62,6 +60,14 @@ $( function() {
 
         updateCount: function() {
             model.currentCat.clickCount++;
+        },
+
+        getAdminViewMode: function() {
+            return model.isAdminView;
+        },
+
+        setAdminViewMode: function(mode) {
+            model.isAdminView = mode;
         }
     };
 
@@ -77,7 +83,7 @@ $( function() {
                     octopus.updateCount();
                     catView.render();
                 }
-            })(cat));
+            })());
 
             catView.render();
         },
@@ -117,6 +123,63 @@ $( function() {
                     }
                 })(cat));
                 this.catListElem.appendChild(cat_elem);
+            }
+        }
+    };
+
+    let catAdminButtonView = {
+        init: function() {
+            this.catAdminBtnElem = document.querySelector('#admin-btn');
+            this.catAdminBtnElem.addEventListener('click', function() {
+                "use strict";
+                octopus.setAdminViewMode(true);
+                catEditView.render();
+            });
+            this.render();
+        },
+        render: function(){
+            "use strict";
+
+        }
+    };
+
+    let catEditView = {
+        init: function() {
+            this.catEditElem = document.querySelector('#cat-edit-form');
+
+            this.catEditNameElem = document.querySelector('#cat-edit-name');
+            this.catEditImgElem = document.querySelector('#cat-edit-img-url');
+            this.catEditCountElem = document.querySelector('#cat-edit-count');
+            this.catEditSaveBtnElem = document.querySelector('#cat-edit-save-btn');
+            this.catEditCancelBtnElem = document.querySelector('#cat-edit-cancel-btn');
+
+            this.catEditSaveBtnElem.addEventListener('click', () => {
+                "use strict";
+                const editCat = {
+                    "image_src": this.catEditImgElem.textContent,
+                    "name": this.catEditNameElem.textContent,
+                    "clickCount": this.catEditCountElem.textContent
+                };
+                octopus.setCurrentCat(editCat);
+                catEditView.render();
+            });
+            this.catEditCancelBtnElem.addEventListener('click', () => {
+                "use strict";
+                octopus.setAdminViewMode(false);
+                catEditView.render();
+            });
+
+            this.render();
+        },
+        render: function(){
+            "use strict";
+            const is_admin_view = octopus.getAdminViewMode();
+            this.catEditElem.style.display = (!is_admin_view) ? 'none' : 'block';
+            if (is_admin_view) {
+                const cat = octopus.getCurrentCat();
+                this.catEditNameElem.value = cat.name;
+                this.catEditImgElem.value = cat.image_src;
+                this.catEditCountElem.value = cat.clickCount;
             }
         }
     };
