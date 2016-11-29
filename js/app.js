@@ -157,11 +157,14 @@ $( function() {
             this.catEditSaveBtnElem.addEventListener('click', () => {
                 "use strict";
                 const editCat = {
-                    "image_src": this.catEditImgElem.textContent,
-                    "name": this.catEditNameElem.textContent,
-                    "clickCount": this.catEditCountElem.textContent
+                    "image_src": this.catEditImgElem.value,
+                    "name": this.catEditNameElem.value,
+                    "clickCount": this.catEditCountElem.value
                 };
+                // console.log(editCat);
                 octopus.setCurrentCat(editCat);
+                octopus.setAdminViewMode(false);
+                catView.render();
                 catEditView.render();
             });
             this.catEditCancelBtnElem.addEventListener('click', () => {
